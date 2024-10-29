@@ -15,7 +15,7 @@ test('create new expense and update the total', () =>{
   expect(screen.getByText('tester')).toBeInTheDocument();
   expect(screen.getByText('$200')).toBeInTheDocument();
 
-  expect(screen.getByText(/Spent so far/i)).toHaveTextContent('250');
+  expect(screen.getByText(/Spent so far/i)).toHaveTextContent('200');
   expect(screen.getByText(/Remaining/i)).toHaveTextContent('800');
 
 }
@@ -37,7 +37,7 @@ test('delete expense and check total spent and remaining', () =>{
   const del = screen.getByText('x');
   fireEvent.click(del)
   expect(screen.queryByText('tester')).not.toBeInTheDocument();
-  expect(screen.getByText(/Spent so far/i)).toHaveTextContent('300');
+  expect(screen.getByText(/Spent so far/i)).toHaveTextContent('0');
   expect(screen.getByText(/Remaining/i)).toHaveTextContent('1000');
 
 });

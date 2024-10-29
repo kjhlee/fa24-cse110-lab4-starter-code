@@ -30,6 +30,9 @@ test('delete expense and check total spent and remaining', () =>{
   fireEvent.change(name, { target: { value: 'tester' } });
   fireEvent.change(cost, { target: { value: '400' } });
   fireEvent.click(save);
+  expect(screen.getByText('tester')).toBeInTheDocument();
+  expect(screen.getByText('$400')).toBeInTheDocument();
+  
 
   const del = screen.getByText('x');
   fireEvent.click(del)
